@@ -25,10 +25,11 @@ dependencies {
     compileOnly('jakarta.servlet:jakarta.servlet-api:6.1.0')
 
     implementation 'org.mindrot:jbcrypt:0.4' //비밀번호 암호화
+    implementation 'com.sun.mail:jakarta.mail:2.0.1' // SMTP 메일 전송
 
-    implementation 'com.mysql:mysql-connector-j:9.0.0'
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    implementation 'com.mysql:mysql-connector-j:9.0.0'
 }
 
 test {
