@@ -1,0 +1,182 @@
+/* ====== 기본 설정 ====== */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --card-bg: #f9f9f9;
+    --header-bg: rgba(255, 255, 255, 0.8);
+    --filter-bg: #eee;
+    --filter-active: #000;
+    --filter-active-text: #fff;
+}
+
+/* 다크모드 색상 테마 */
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+    --card-bg: #1f1f1f;
+    --header-bg: rgba(30, 30, 30, 0.9);
+    --filter-bg: #2a2a2a;
+    --filter-active: #fff;
+    --filter-active-text: #000;
+}
+
+/* ====== 전체 레이아웃 ====== */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
+}
+
+/* ====== 상단 헤더 ====== */
+.top-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: var(--header-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 왼쪽 "전시" 링크 */
+.exhibition-link {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.exhibition-link:hover {
+    opacity: 0.7;
+}
+
+/* 오른쪽 메뉴 */
+.right-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.right-menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.right-menu a:hover {
+    color: #888;
+}
+
+/* 🌙 다크모드 토글 버튼 */
+.theme-btn {
+    display: inline-block !important;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.theme-btn:hover {
+    transform: scale(1.2);
+    color: var(--filter-active);
+}
+
+/* ====== 컨텐츠 영역 ====== */
+.container {
+    margin-top: 120px;
+    padding: 40px;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* ====== 필터 버튼 ====== */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.filter {
+    padding: 10px 20px;
+    border: none;
+    background: var(--filter-bg);
+    color: var(--text-color);
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.filter:hover {
+    background: var(--filter-active);
+    color: var(--filter-active-text);
+}
+
+.filter.active {
+    background: var(--filter-active);
+    color: var(--filter-active-text);
+}
+
+/* ====== 전시 카드 ====== */
+.exhibit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.exhibit-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.exhibit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.exhibit-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.info {
+    padding: 15px;
+}
+
+.info h3 {
+    margin: 10px 0;
+    font-size: 1.1em;
+    color: var(--text-color);
+}
+
+.info p {
+    margin: 5px 0;
+    color: #666;
+}
+
+[data-theme="dark"] .info p {
+    color: #ccc;
+}
